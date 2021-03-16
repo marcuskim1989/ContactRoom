@@ -41,15 +41,17 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
 
         recyclerView = findViewById(R.id.recycler_view);
 
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-
         contactViewModel = new ViewModelProvider.AndroidViewModelFactory(MainActivity.this
                 .getApplication())
                 .create(ContactViewModel.class);
 
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        contactViewModel.insert(new Contact("george", "butcher"));
+
         contactViewModel.getAllContacts().observe(this, contacts -> {
+
 
             recyclerViewAdapter = new RecyclerViewAdapter(contacts, MainActivity.this, this);
             recyclerView.setAdapter(recyclerViewAdapter);
@@ -90,10 +92,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
         Intent intent = new Intent(MainActivity.this, NewContact.class);
         intent.putExtra(CONTACT_ID, contact.getId());
         startActivity(intent);
-
-
-
-
 
     }
 }

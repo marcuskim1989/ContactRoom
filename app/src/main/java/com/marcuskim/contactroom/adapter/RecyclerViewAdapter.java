@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.marcuskim.contactroom.MainActivity;
 import com.marcuskim.contactroom.R;
 import com.marcuskim.contactroom.model.Contact;
 
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.Objects;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
@@ -21,11 +23,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private final Context context;
     private final OnContactClickListener contactClickListener;
 
-    public RecyclerViewAdapter(List<Contact> contactList, Context context, OnContactClickListener onContactClickListener) {
+    public RecyclerViewAdapter(List<Contact> contactList, Context context, OnContactClickListener contactClickListener) {
         this.contactList = contactList;
         this.context = context;
-        this.contactClickListener = onContactClickListener;
+        this.contactClickListener = contactClickListener;
     }
+
 
     @NonNull
     @Override
@@ -38,7 +41,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Contact contact = Objects.requireNonNull(contactList.get(position));
+        Contact contact = contactList.get(position);
         holder.name.setText(contact.getName());
         holder.occupation.setText(contact.getOccupation());
 
