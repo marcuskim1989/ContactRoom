@@ -48,8 +48,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        contactViewModel.insert(new Contact("george", "butcher"));
-
         contactViewModel.getAllContacts().observe(this, contacts -> {
 
 

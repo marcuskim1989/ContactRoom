@@ -32,10 +32,11 @@
         android:id="@+id/save_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/button_magins"
+        android:layout_margin="@dimen/button_margins"
         android:padding="@dimen/general_padding"
         android:text="@string/save_text"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/enter_occupation" />
 

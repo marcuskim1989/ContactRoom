@@ -13,7 +13,7 @@
     -->
     <dimen name="inner_frame_layout_padding">5dp</dimen>
     <dimen name="general_padding">10dp</dimen>
-    <dimen name="general_magrin">8dp</dimen>
-    <dimen name="button_magins">10dp</dimen>
+    <dimen name="general_margin">8dp</dimen>
+    <dimen name="button_margins">10dp</dimen>
     <dimen name="elevation">12dp</dimen>
 </resources>
